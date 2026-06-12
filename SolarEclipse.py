@@ -29,7 +29,7 @@ TOTALITY_EXPOSURES = [
 DIAMOND_EXPOSURES = ["1/8000", "1/4000", "1/2000"]
 
 # --- MODALITÀ DI ESECUZIONE ---
-SIMULATION_MODE = True  # Imposta su False sul campo reale
+SIM_MODE = True  # Imposta su False sul campo reale
 SIM_SPEED_UP    = 60.0  # Fattore di accelerazione del tempo in simulazione (es. 60x)
 
 # ==============================================================================
@@ -63,7 +63,7 @@ clock = SimClock(P1_START, speed_up=SIM_SPEED_UP, active=SIM_MODE)
 # ==============================================================================
 def set_shutter_speed(speed):
     """Invia il comando USB per variare il tempo di scatto."""
-    if SIMULATION_MODE:
+    if SIM_MODE:
         return
     try:
         subprocess.run([CMD_PATH, "/c", "set", "shutterkeyword", speed], capture_output=True)
@@ -74,7 +74,7 @@ def capture_image(filename):
     """Invia il comando USB per far scattare la reflex."""
     now_str = clock.now().strftime('%H:%M:%S')
     print(f"[{now_str}] [SCATTO] -> {filename}")
-    if SIMULATION_MODE:
+    if SIM_MODE:
         return
     try:
         subprocess.run([CMD_PATH, "/c", "capture", filename], capture_output=True)
@@ -122,7 +122,7 @@ def run_eclipse_automation():
     PRE_END_TOTALITY_TIME = (datetime.combine(datetime.today(), TOTALITY_END) - timedelta(seconds=20)).time()
     
     print("=" * 70)
-    print(f" LOGISTICA AUTOMAZIONE ECLISSI 2026 - MODALITÀ SIMULAZIONE: {SIMULATION_MODE}")
+    print(f" LOGISTICA AUTOMAZIONE ECLISSI 2026 - MODALITÀ SIMULAZIONE: {SIM_MODE}")
     print("=" * 70)
     print(f" Finestra Diamante C2:  Da {START_DIAMOND_BURST.strftime('%H:%M:%S')} a {START_CORONA_BRACKET.strftime('%H:%M:%S')}")
     print(f" Bracketing Corona:    Da {START_CORONA_BRACKET.strftime('%H:%M:%S')} a {TOTALITY_END.strftime('%H:%M:%S')}")
@@ -133,7 +133,7 @@ def run_eclipse_automation():
         now_time = now_dt.time()
         current_sim_ts = now_dt.timestamp()
         
-        if SIMULATION_MODE:
+        if SIM_MODE:
             print(f" Ora Simulata: {now_dt.strftime('%H:%M:%S')} | Stato: Monitoraggio loop", end="\r")
 
         # ----------------------------------------------------------------------
@@ -190,7 +190,7 @@ def run_eclipse_automation():
             print(f"\n\n[!!!] FASE TOTALE: AVVIO BRACKETING CORONA PROFONDA ({now_time.strftime('%H:%M:%S')})")
             
             sim_seconds_left = (datetime.combine(datetime.today(), TOTALITY_END) - clock.now()).total_seconds()
-            real_seconds_left = sim_seconds_left / SIM_SPEED_UP if SIMULATION_MODE else sim_seconds_left
+            real_seconds_left = sim_seconds_left / SIM_SPEED_UP if SIM_MODE else sim_seconds_left
             real_end_time = time.time() + real_seconds_left
             
             # Ciclo continuo a oltranza fino all'ultimo secondo della totalità
@@ -214,7 +214,7 @@ def run_eclipse_automation():
                     # Calcolo dinamico dei tempi di scrittura del sensore per evitare blocchi specchio
                     exp_time = calculate_exposure_wait(speed)
                     buffer_time = 2.5 if exp_time >= 1.0 else 1.4
-                    wait_time = exp_time + (buffer_time if not SIMULATION_MODE else buffer_time / 2)
+                    wait_time = exp_time + (buffer_time if not SIM_MODE else buffer_time / 2)
                     clock.sleep(wait_time, critical=True) 
             
             # Chiusura della finestra totale (Contatto C3)

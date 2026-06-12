@@ -49,7 +49,7 @@ Open the script file and update the parameters in the top section:
 # Path to digiCamControl remote CLI tool
 CMD_PATH = r"C:\Program Files (x86)\digiCamControl\CameraControlRemoteCmd.exe"
 
-# Real local contact timings based on your specific coordination site in Spain
+# Real local contact timings based on your specific coordination site 
 P1_START       = datetime_time(19, 30, 0)
 TOTALITY_START = datetime_time(20, 27, 0)
 TOTALITY_END   = datetime_time(20, 28, 45)

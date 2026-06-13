@@ -1,101 +1,72 @@
 # Universal Total Solar Eclipse Automation Script
 
-An advanced, robust Python automation script designed to orchestrate split-second camera triggering and exposure bracketing during a Total Solar Eclipse. Operating via **digiCamControl**, this engine supports **Canon, Nikon, and Sony** camera systems, automating high-speed Diamond Ring bursts, multi-exposure Corona HDR sequences, and automated local voice alerts.
+A Python automation script developed to manage the entire photographic session during the Total Solar Eclipse on August 12, 2026 (Primary observation site: Galicia, Spain).
+
+The engine interfaces directly with the **digiCamControl** Command Line Utility (`CameraControlRemoteCmd.exe`) to drive the camera body via USB. This eliminates human error and manages critical astronomical contact windows with millisecond-level precision.
 
 ---
 
-## 🌟 Key Features
+## ⚡ Key Features & Optimizations
 
-* **Multi-Brand Shutter Profiles:** Seamlessly handles firmware-specific command line formats across Canon (decimal notations like `0.5`), Nikon, and Sony (fractional notations like `1/2`).
-* **Anti-Freeze Connection Protocol:** Built-in interactive "Phase 0" startup checklist enforcing the exact hardware initialization sequence to prevent USB handshake lockups.
-* **Corona HDR Bracketing Engine:** Executes an expanded 14-stop exposure ladder with an automated double-exposure safety buffer per stop to neutralize accidental camera shake.
-* **Diamond Ring & Baily's Beads Burst:** Captures highly volatile contact points (C2 and C3) with rapid 20-shot continuous brackets covering a 4-stop range.
-* **Integrated Time Simulation:** Features a `SIM_MODE` clock simulator to perform full-speed or accelerated dry-runs from the comfort of your desk without firing physical shutters.
-* **Emergency Local Logging:** Simultaneous terminal and text-file logging to preserve operational diagnostic history on the field.
+### 1. Zero-Overhead USB Protocol (Maximum Speed)
+During the totality core, every single millisecond is vital. The script is stripped of any processing overhead to prevent USB bus bottlenecks and PC CPU spikes:
+* It fires the raw hardware `capture` command with no extra arguments.
+* **No real-time file transfer:** The camera must be configured to write exclusively to its internal SD card, leveraging the mirrorless camera's native hardware buffer.
+* **Zero string manipulation or file renaming** takes place during the core totality loop, mitigating any risk of interface freezing.
 
----
+### 2. Granular Control & Isolated Exposure Pools
+Shutter speed management is split into three independent, clean Python lists at the very top of the script. This allows for instant adjustments without messing with the core loop logic:
+* **Prominences:** Ultra-fast shutter speeds dedicated to freezing plasma structures on the solar chromosphere without saturating the red channel.
+* **Corona:** A progressive dynamic ramp (ranging from fast to long exposures) to capture the full structural detail of both the inner and outer corona.
+* **Burst C2/C3:** High-speed sequences dedicated to capturing Baily's Beads and the Diamond Ring effect right at the contact thresholds.
 
-## 🛠️ Hardware & Software Prerequisites
+### 3. Anti-Vibration Redundancy (3-Shot Burst)
+For every exposure step defined in the HDR ladder, the script executes a **3-shot consecutive burst** before sending the command to switch the shutter speed (`set shutterspeed`). This provides crucial statistical redundancy against micro-blurring caused by wind gusts or mechanical shutter vibrations.
 
-### 1. Operating System & Software
-* **Windows OS:** Required natively due to reliance on `winsound` audio architecture and the digiCamControl backend.
-* **digiCamControl:** Must be installed in its default directory: `C:\Program Files (x86)\digiCamControl\`.
+### 4. Emergency Hot-Resume Protocol
+In the event of a system crash, accidental cable disconnection, or an unexpected PC reboot on the field, the engine performs an instantaneous timestamp validation upon startup. The script automatically detects the ongoing phase of the eclipse, skips past events, and resynchronizes the shooting sequence in less than 2 seconds.
 
-### 2. Camera Body Configurations
-Before launching the automation script, configure your camera body exactly as follows:
-
-* ⚠️ **CRITICAL: Exposure Parameters (ISO & Aperture):** Manually dial in your chosen ISO (e.g., ISO 100 or 400) and Aperture (e.g., f/8) *permanently* before the script starts. **The automation engine strictly changes the Shutter Speed only.** It will NOT alter your ISO or Aperture during the sequence.
-* **Exposure Mode:** Set the physical mode dial strictly to **M (Manual)**.
-* **Focusing:** Achieve perfect focus on the sun/stars beforehand, then switch the lens/body to **MF (Manual Focus)**. Secure the focus ring with tape.
-* **Storage Routing:** Ensure the camera is configured to write files **ONLY to the internal SD card**. Saving files over USB to the laptop will overflow the interface buffer during high-speed brackets.
-* **Brand Specific Connections:**
-    * *Nikon / Canon:* Standard PTP communication protocol.
-    * *Sony:* The camera's USB Connection setting **must** be set to **PC Remote** or **MTP** depending on the specific mirrorless model.
+### 5. Field Telemetry & Power Monitoring
+Native integration with system telemetry libraries keeps track of the laptop's power status. If the battery drops below a critical threshold of 20% while disconnected from the power bank (19V / 3.42A), the script triggers high-frequency audio alerts to warn the operator without interrupting the active capture loop.
 
 ---
 
-## ⚙️ Configuration & Customization
+## ⚙️ Exposure Ladder Configuration
 
-Open the script in your preferred editor and adjust the **Global Configuration** block at the top:
+Customizing your HDR bracket is as simple as editing the values inside Section 1 of the script:
 
-### 1. Select Your Camera Brand
 ```python
-# Options: "CANON", "NIKON", or "SONY"
-CAMERA_BRAND = "CANON" 
+# 1. PROMINENCE LEVEL (Plasma / Chromosphere)
+SHUTTER_SPEEDS_PROMINENCES = [
+    "1/8000", "1/4000", "1/2000", "1/1000", "1/500"
+]
 
-2. Input Your Coordinates' Exact Contact Times
+# 2. SOLAR CORONA LEVEL (Inner & Outer Corona)
+SHUTTER_SPEEDS_CORONA = [
+    "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1/4", "0.5", "1"
+]
 
-Calculate the precise contact times for your specific observation path and modify the variables accordingly:
-Python
+# 3. CRITICAL BURST SPEEDS FOR C2 & C3 (Diamond Ring)
+SHUTTER_SPEEDS_BURST = ["1/8000", "1/4000", "1/2000", "1/1000"]
 
-P1_START       = datetime_time(19, 30, 0)   # Partial Phase Ingress Begins
-TOTALITY_START = datetime_time(20, 27, 0)   # Totality Begins (C2 Contact)
-TOTALITY_END   = datetime_time(20, 28, 45)  # Totality Ends (C3 Contact)
-P3_END         = datetime_time(21, 15, 0)   # Partial Phase Egress Ends (C4)
+📋 Mandatory Pre-Flight Checklist
 
-3. Audio Triggers (User-Provided)
+Upon execution, the script forces the operator to manually validate the hardware state via the terminal before entering the live countdown. Ensure you follow this exact sequence:
 
-To keep the engine flexible and international-friendly, no audio files are provided in this repository. You are encouraged to record or generate your own countdown voice alerts in your native language (hearing a familiar voice or language helps reduce stress during critical live phases).
+    Connection Order: Turn the camera ON -> Connect the shielded USB cable to the PC -> Launch the script.
 
-Save them as .wav files on your local drive and map their absolute paths in the configuration block:
-Python
+    Optics: Solar ND filter firmly mounted for the partial phases. Lens focus set to MANUAL (MF) and physically taped down to prevent any accidental focus hunting.
 
-AUDIO_1_MIN        = r"C:\Eclipse\Audio\one_minute_left.wav"
-AUDIO_TOGLI_FILTRO = r"C:\Eclipse\Audio\remove_filter.wav"
-AUDIO_20_SEC       = r"C:\Eclipse\Audio\20_seconds_left.wav"
-AUDIO_METTI_FILTRO = r"C:\Eclipse\Audio\replace_filter.wav"
+    Camera Mode: Camera body dial must be set to strict Manual (M). ISO and Aperture must be configured manually beforehand (the script will only adjust shutter speeds).
 
-🚀 Step-by-Step Field Operation Workflow
+    Storage Configuration: Set the camera storage destination EXCLUSIVELY to the internal SD card (disable the PC-only or split-saving transfer modes inside digiCamControl).
 
-To prevent Windows or the camera firmware from freezing the USB stack, follow this exact physical connection sequence enforced by the script's interactive Preflight Checklist:
+🛠️ System Requirements
 
-    Mount everything: Secure your setup on your tripod or tracker, mount the Solar Filter, and acquire perfect focus.
+    OS: Windows 10 / 11
 
-    Power On Camera: Turn on your camera body before plugging in any data links. Ensure it is in Manual mode with ISO and Aperture locked.
+    Software: digiCamControl (installed in its default path: C:\Program Files (x86))
 
-    Connect Interface Link: Plug the USB cable into the camera body and then into the laptop.
+    Python: Version 3.8 or higher
 
-    Execute Script: Launch the automation engine terminal:
-    Bash
-
-    python eclipse_automation_en.py
-
-    Interactive Validation: The script will open digiCamControl automatically and pause at "Phase 0". Read the screen, confirm the connection protocol, and hit ENTER.
-
-    Physical Safety Checklist: Go through the 5-point safety questionnaire on the terminal pressing ENTER for each step to ensure your solar filter is on and settings are locked.
-
-    Engine Takeover: The countdown engine takes control. You can safely step away from the equipment and enjoy the celestial event.
-
-🧪 Testing with Simulation Mode
-
-Do not wait until eclipse day to test your setup. You can dry-run the entire script at home safely:
-
-    Set SIM_MODE = True in the configuration.
-
-    Set SIM_SPEED_UP = 1.0 to run the timeline in real-time, or increase it (e.g., 5.0) to accelerate the partial phases during testing.
-
-    The engine will warp its internal clock to 1 minute before C1 and cycle through all phases, playing your local audio alerts and printing virtual shutter actions without checking hardware endpoints.
-
-⚠️ Disclaimer
-
-This software is provided "as is", without warranty of any kind. Solar eclipse events are unforgiving and non-repeatable. Perform extensive dry-runs with your specific camera body model, laptop power banks, and data cables under varying conditions before the live event.
+    Optional Dependencies: psutil (for power telemetry monitoring), ephem (for live GPS coordinate/astronomical contact tracking).

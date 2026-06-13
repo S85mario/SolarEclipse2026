@@ -147,3 +147,263 @@
 
 --- NUOVA SESSIONE DI SCATTO (CANON): 2026-06-13 11:40:56.436222 ---
 [2026-06-13 11:41:05] [INFO] ENGINE ECLISSI ATTIVO [PROFILO: CANON]
+[2026-06-13 12:39:44] [INFO] [TIMING] Configurazione oraria manuale caricata con successo.
+[2026-06-13 12:40:21] [INFO] MOTORE ECLISSI ATTIVO [PRESET ATTUALE: COMBINED_HDR]
+[2026-06-13 12:40:23] [INFO] Scatto automatico Ingress Parziale #1
+[2026-06-13 12:40:23] [INFO] [SIM] Scatto eseguito: Partial_Ingress
+[2026-06-13 12:40:59] [INFO] Scatto automatico Ingress Parziale #2
+[2026-06-13 12:40:59] [INFO] [SIM] Scatto eseguito: Partial_Ingress
+[2026-06-13 12:41:35] [INFO] Scatto automatico Ingress Parziale #3
+[2026-06-13 12:41:35] [INFO] [SIM] Scatto eseguito: Partial_Ingress
+[2026-06-13 12:42:11] [INFO] Scatto automatico Ingress Parziale #4
+[2026-06-13 12:42:11] [INFO] [SIM] Scatto eseguito: Partial_Ingress
+[2026-06-13 12:42:15] [INFO] T-60s al C2: Avviso vocale 1 minuto.
+[2026-06-13 12:42:15] [INFO] [SIM - AUDIO] Riproduzione: one_minute_left.wav
+[2026-06-13 12:42:17] [INFO] T-12s: RIMUOVERE IL FILTRO SOLARE IMMEDIATAMENTE!
+[2026-06-13 12:42:17] [INFO] [SIM - AUDIO] Riproduzione: remove_filter.wav
+[2026-06-13 12:42:17] [INFO] BURST C2 COMINCIATO (Anello di Diamante Ingress)
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S1
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S2
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S3
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S4
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S5
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S1
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S2
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S3
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S4
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S5
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S1
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S2
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S3
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S4
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S5
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S1
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S2
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S3
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S4
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S5
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8000_S1
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8000_S2
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4000_S1
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4000_S2
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_2000_S1
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_2000_S2
+[2026-06-13 12:42:17] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_1000_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_1000_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_500_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_500_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_250_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_250_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_125_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_125_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_60_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_60_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_30_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_30_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_15_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_15_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8_S1
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8_S2
+[2026-06-13 12:42:18] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4_S1
+[2026-06-13 12:42:19] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4_S2
+[2026-06-13 12:42:19] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_0_5_S1
+[2026-06-13 12:42:19] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_0_5_S2
+[2026-06-13 12:42:19] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_S1
+[2026-06-13 12:42:19] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_S2
+[2026-06-13 12:42:19] [INFO] SEQUENZA HDR (COMBINED_HDR) COMPLETATA. Motore in stand-by fino al burst C3.
+[2026-06-13 12:42:20] [INFO] T-20s al C3: Fine imminente della totalità!
+[2026-06-13 12:42:20] [INFO] [SIM - AUDIO] Riproduzione: 20_seconds_left.wav
+[2026-06-13 12:42:21] [INFO] BURST C3 COMINCIATO (Anello di Diamante Egress)
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_8000_S1
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_8000_S2
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_8000_S3
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_8000_S4
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_8000_S5
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_4000_S1
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_4000_S2
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_4000_S3
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_4000_S4
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_4000_S5
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_2000_S1
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_2000_S2
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_2000_S3
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_2000_S4
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_2000_S5
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_1000_S1
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_1000_S2
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_1000_S3
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_1000_S4
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C3_1_1000_S5
+[2026-06-13 12:42:21] [INFO] C3 Superato: RIPOSIZIONARE IL FILTRO SOLARE IMMEDIATAMENTE!
+[2026-06-13 12:42:21] [INFO] [SIM - AUDIO] Riproduzione: replace_filter.wav
+[2026-06-13 12:42:21] [INFO] Scatto automatico Egress Parziale #1
+[2026-06-13 12:42:21] [INFO] [SIM] Scatto eseguito: Partial_Egress
+[2026-06-13 12:42:44] [INFO] Scatto automatico Egress Parziale #2
+[2026-06-13 12:42:44] [INFO] [SIM] Scatto eseguito: Partial_Egress
+[2026-06-13 12:43:07] [INFO] Scatto automatico Egress Parziale #3
+[2026-06-13 12:43:07] [INFO] [SIM] Scatto eseguito: Partial_Egress
+[2026-06-13 12:52:31] [INFO] [TIMING] Configurazione oraria manuale caricata con successo.
+[2026-06-13 12:52:31] [INFO] Inizializzazione del backend di comunicazione per: CANON...
+[2026-06-13 12:52:59] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/2000
+[2026-06-13 12:52:59] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/2000
+[2026-06-13 12:52:59] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/2000
+[2026-06-13 12:53:00] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/2000)!
+[2026-06-13 12:53:22] [INFO] MOTORE ECLISSI ATTIVO [PRESET ATTUALE: COMBINED_HDR]
+[2026-06-13 13:00:54] [INFO] [TIMING] Configurazione oraria manuale caricata con successo.
+[2026-06-13 13:00:54] [INFO] Inizializzazione del backend di comunicazione per: CANON...
+[2026-06-13 13:01:05] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/2000
+[2026-06-13 13:01:05] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/2000
+[2026-06-13 13:01:06] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/2000
+[2026-06-13 13:01:06] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/2000)!
+[2026-06-13 13:01:14] [INFO] MOTORE ECLISSI ATTIVO [PRESET ATTUALE: COMBINED_HDR]
+[2026-06-13 13:05:00] [INFO] Scatto automatico Ingress Parziale #1
+[2026-06-13 13:05:00] [WARN] Scatto non confermato (Tentativo 1/3) su: Partial_Ingress
+[2026-06-13 13:05:00] [WARN] Scatto non confermato (Tentativo 2/3) su: Partial_Ingress
+[2026-06-13 13:05:00] [WARN] Scatto non confermato (Tentativo 3/3) su: Partial_Ingress
+[2026-06-13 13:05:00] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Partial_Ingress!
+[2026-06-13 13:05:10] [INFO] T-60s al C2: Avviso vocale 1 minuto.
+[2026-06-13 13:05:58] [INFO] T-12s: RIMUOVERE IL FILTRO SOLARE IMMEDIATAMENTE!
+[2026-06-13 13:06:06] [INFO] BURST C2 COMINCIATO (Anello di Diamante Ingress)
+[2026-06-13 13:06:06] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/8000
+[2026-06-13 13:06:06] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/8000
+[2026-06-13 13:06:06] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/8000
+[2026-06-13 13:06:07] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/8000)!
+[2026-06-13 13:06:08] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/4000
+[2026-06-13 13:06:08] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/4000
+[2026-06-13 13:06:09] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/4000
+[2026-06-13 13:06:09] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/4000)!
+[2026-06-13 13:06:11] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/2000
+[2026-06-13 13:06:11] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/2000
+[2026-06-13 13:06:11] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/2000
+[2026-06-13 13:06:11] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/2000)!
+[2026-06-13 13:06:13] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/1000
+[2026-06-13 13:06:13] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/1000
+[2026-06-13 13:06:14] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/1000
+[2026-06-13 13:06:14] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/1000)!
+[2026-06-13 13:06:16] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/8000
+[2026-06-13 13:06:16] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/8000
+[2026-06-13 13:06:16] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/8000
+[2026-06-13 13:06:16] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/8000)!
+[2026-06-13 13:06:18] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_8000_S1
+[2026-06-13 13:06:18] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_8000_S1
+[2026-06-13 13:06:19] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_8000_S1
+[2026-06-13 13:06:19] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_8000_S1!
+[2026-06-13 13:06:19] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_8000_S2
+[2026-06-13 13:06:19] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_8000_S2
+[2026-06-13 13:06:20] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_8000_S2
+[2026-06-13 13:06:20] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_8000_S2!
+[2026-06-13 13:06:20] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/4000
+[2026-06-13 13:06:20] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/4000
+[2026-06-13 13:06:20] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/4000
+[2026-06-13 13:06:21] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/4000)!
+[2026-06-13 13:06:22] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_4000_S1
+[2026-06-13 13:06:23] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_4000_S1
+[2026-06-13 13:06:23] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_4000_S1
+[2026-06-13 13:06:23] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_4000_S1!
+[2026-06-13 13:06:23] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_4000_S2
+[2026-06-13 13:06:24] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_4000_S2
+[2026-06-13 13:06:24] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_4000_S2
+[2026-06-13 13:06:24] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_4000_S2!
+[2026-06-13 13:06:24] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/2000
+[2026-06-13 13:06:25] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/2000
+[2026-06-13 13:06:25] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/2000
+[2026-06-13 13:06:25] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/2000)!
+[2026-06-13 13:06:27] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_2000_S1
+[2026-06-13 13:06:27] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_2000_S1
+[2026-06-13 13:06:27] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_2000_S1
+[2026-06-13 13:06:27] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_2000_S1!
+[2026-06-13 13:06:28] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_2000_S2
+[2026-06-13 13:06:28] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_2000_S2
+[2026-06-13 13:06:28] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_2000_S2
+[2026-06-13 13:06:28] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_2000_S2!
+[2026-06-13 13:06:29] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/1000
+[2026-06-13 13:06:29] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/1000
+[2026-06-13 13:06:29] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/1000
+[2026-06-13 13:06:29] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/1000)!
+[2026-06-13 13:06:31] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_1000_S1
+[2026-06-13 13:06:31] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_1000_S1
+[2026-06-13 13:06:32] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_1000_S1
+[2026-06-13 13:06:32] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_1000_S1!
+[2026-06-13 13:06:32] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_1000_S2
+[2026-06-13 13:06:32] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_1000_S2
+[2026-06-13 13:06:33] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_1000_S2
+[2026-06-13 13:06:33] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_1000_S2!
+[2026-06-13 13:06:33] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/500
+[2026-06-13 13:06:33] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/500
+[2026-06-13 13:06:34] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/500
+[2026-06-13 13:06:34] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/500)!
+[2026-06-13 13:06:35] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_500_S1
+[2026-06-13 13:06:36] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_500_S1
+[2026-06-13 13:06:36] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_500_S1
+[2026-06-13 13:06:36] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_500_S1!
+[2026-06-13 13:06:36] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_500_S2
+[2026-06-13 13:06:37] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_500_S2
+[2026-06-13 13:06:37] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_500_S2
+[2026-06-13 13:06:37] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_500_S2!
+[2026-06-13 13:06:37] [WARN] Handshake USB lento (Tentativo 1/3) per tempo: 1/250
+[2026-06-13 13:06:38] [WARN] Handshake USB lento (Tentativo 2/3) per tempo: 1/250
+[2026-06-13 13:06:38] [WARN] Handshake USB lento (Tentativo 3/3) per tempo: 1/250
+[2026-06-13 13:06:38] [ERROR] CRITICAL HARDWARE DROP: [CANON] non risponde al cambio tempo (1/250)!
+[2026-06-13 13:06:40] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_250_S1
+[2026-06-13 13:06:40] [WARN] Scatto non confermato (Tentativo 2/3) su: Corona_COMBINED_HDR_1_250_S1
+[2026-06-13 13:06:40] [WARN] Scatto non confermato (Tentativo 3/3) su: Corona_COMBINED_HDR_1_250_S1
+[2026-06-13 13:06:40] [ERROR] CRITICAL CAMERA CRASH: L'otturatore non ha scattato per la fase Corona_COMBINED_HDR_1_250_S1!
+[2026-06-13 13:06:41] [WARN] Scatto non confermato (Tentativo 1/3) su: Corona_COMBINED_HDR_1_250_S2
+[2026-06-13 13:08:29] [INFO] [TIMING] Configurazione oraria manuale caricata con successo.
+[2026-06-13 13:08:34] [INFO] MOTORE ECLISSI ATTIVO [PRESET ATTUALE: COMBINED_HDR]
+[2026-06-13 13:09:35] [INFO] Scatto automatico Ingress Parziale #1
+[2026-06-13 13:09:35] [INFO] [SIM] Scatto eseguito: Partial_Ingress
+[2026-06-13 13:14:45] [INFO] T-60s al C2: Avviso vocale 1 minuto.
+[2026-06-13 13:14:45] [INFO] [SIM - AUDIO] Riproduzione: one_minute_left.wav
+[2026-06-13 13:15:33] [INFO] T-12s: RIMUOVERE IL FILTRO SOLARE IMMEDIATAMENTE!
+[2026-06-13 13:15:33] [INFO] [SIM - AUDIO] Riproduzione: remove_filter.wav
+[2026-06-13 13:15:41] [INFO] BURST C2 COMINCIATO (Anello di Diamante Ingress)
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S1
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S2
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S3
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S4
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_8000_S5
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S1
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S2
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S3
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S4
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_4000_S5
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S1
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S2
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S3
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S4
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_2000_S5
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S1
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S2
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S3
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S4
+[2026-06-13 13:15:41] [INFO] [SIM] Scatto eseguito: Diamond_Ring_C2_1_1000_S5
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8000_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8000_S2
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4000_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4000_S2
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_2000_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_2000_S2
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_1000_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_1000_S2
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_500_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_500_S2
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_250_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_250_S2
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_125_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_125_S2
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_60_S1
+[2026-06-13 13:15:45] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_60_S2
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_30_S1
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_30_S2
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_15_S1
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_15_S2
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8_S1
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_8_S2
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4_S1
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_4_S2
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_0_5_S1
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_0_5_S2
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_S1
+[2026-06-13 13:15:46] [INFO] [SIM] Scatto eseguito: Corona_COMBINED_HDR_1_S2
+[2026-06-13 13:15:46] [INFO] SEQUENZA HDR (COMBINED_HDR) COMPLETATA. Motore in stand-by fino al burst C3.

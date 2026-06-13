@@ -26,21 +26,23 @@ except ImportError:
 CAMERA_BRAND = "CANON"  # Select brand: "CANON", "NIKON", or "SONY"
 
 # ------------------------------------------------------------------------------
-# EDITABLE EXPOSURE LADDERS
+# EDITABLE EXPOSURE LADDERS (Calibrated on f/8, ISO 200 via Astrofili Scientific PDF)
 # ------------------------------------------------------------------------------
 
-# 1. PROMINENCE LEVEL (Plasma / Chromosphere)
+# 1. PROMINENCE LEVEL (Plasma / Chromosphere - Q: 10 down to 8)
+# Fast speeds to lock the vivid red plasma loops without clipping
 SHUTTER_SPEEDS_PROMINENCES = [
-    "1/8000", "1/4000", "1/2000", "1/1000", "1/500"
+    "1/8000", "1/4000", "1/2000", "1/1000"
 ]
 
-# 2. SOLAR CORONA LEVEL (Inner and Outer Corona)
+# 2. SOLAR CORONA LEVEL (Inner to Outer Filament Extension - Q: 7 down to 0)
+# Dynamic rungs from 1/500 (inner) up to 2 full seconds (outer halo extension)
 SHUTTER_SPEEDS_CORONA = [
-    "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1/4", "0.5", "1"
+    "1/500", "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1/4", "0.5", "1", "2"
 ]
 
-# 3. CRITICAL BURST SPEEDS FOR C2 & C3 (Diamond Ring / Baily's Beads)
-SHUTTER_SPEEDS_BURST = ["1/8000", "1/4000", "1/2000", "1/1000"]
+# 3. CRITICAL BURST SPEEDS FOR C2 & C3 (Diamond Ring / Baily's Beads - Q: 11)
+SHUTTER_SPEEDS_BURST = ["1/8000", "1/4000", "1/2000"]
 
 # Sequential blend of the ladders before running the core engine
 SHUTTER_SPEEDS_HDR = SHUTTER_SPEEDS_PROMINENCES + SHUTTER_SPEEDS_CORONA
@@ -125,8 +127,19 @@ def check_system_telemetry():
             winsound.Beep(2000, 1000)
 
 
+def parse_shutter_to_seconds(shutter_str):
+    """Converts shutter speed strings into safe float values for physical delays"""
+    try:
+        if "/" in shutter_str:
+            num, denom = shutter_str.split("/")
+            return float(num) / float(denom)
+        return float(shutter_str)
+    except Exception:
+        return 0.1  # Fallback safety factor
+
+
 def set_shutter_speed(shutter_speed, max_retries=3):
-    """Sends shutter speed change command with anti-freeze recovery loop"""
+    """Sends shutter speed change command with dynamic anti-freeze recovery delay"""
     if SIM_MODE:
         return True
         
@@ -134,7 +147,15 @@ def set_shutter_speed(shutter_speed, max_retries=3):
         try:
             result = subprocess.run([CMD_PATH, "/c", "set", "shutterspeed", shutter_speed], capture_output=True, text=True)
             if "error" not in result.stdout.lower() and result.returncode == 0:
-                time.sleep(0.15)  # Electronic stabilization delay
+                
+                # --- DYNAMIC DELAY LOGIC ---
+                # Safe electronic stabilization delay + actual exposure duration for long exposures
+                exposure_duration = parse_shutter_to_seconds(shutter_speed)
+                if exposure_duration >= 0.25:
+                    time.sleep(0.15 + exposure_duration)
+                else:
+                    time.sleep(0.15)
+                    
                 return True
         except Exception as e:
             log_message(f"USB Error at attempt {attempt}: {e}", level="WARN")
@@ -219,7 +240,7 @@ def run_preflight_checklist():
             if input("Force initialization anyway? (y/n): ").lower() != 'y': sys.exit(1)
             
     checklist = [
-        "Solar Filter securely mounted on the lens?",
+        "Solar Filter securely mounted on the lens for partial phases?",
         "Lens focus set to MANUAL (MF) and taped down securely?",
         "Camera physical mode dial set to strict Manual ('M')?",
         "ISO and Aperture manually locked? (The script WILL NOT change them!)",
@@ -333,7 +354,7 @@ def run_eclipse_automation():
                         for _ in range(5): capture_image("C3_Burst")
                 c3_burst_done = True
             
-            # Ultra-Lean Bracket Sequence (3-Shot Burst)
+            # Ultra-Lean Bracket Sequence (3-Shot Burst with Intelligent Safe Delay)
             if time_to_c3 > 2 and not hdr_sequence_done:
                 current_shutter = SHUTTER_SPEEDS_HDR[hdr_index]
                 

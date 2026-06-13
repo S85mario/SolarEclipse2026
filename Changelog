@@ -1,7 +1,3 @@
-[Total Exposure Control] Removed the automatic brand-based filtering logic. Now, all shooting sequences are exposed at the top of the code as native Python lists for maximum editing freedom.
+HDR Ladder Calibrated on Scientific Data: We have updated the exposure time pools by translating the data from Alberto Villa’s table (Astrofili Alta Valdera Association) directly into the code. The sequence now perfectly covers prominences (ultra-fast speeds) as well as the inner, middle, and outer corona (up to 2 seconds native exposure), optimized for an f/8 aperture and ISO 200.
 
-[Separation of Astronomical Targets] Clearly split shutter speeds into two independent pools: SHUTTER_SPEEDS_PROMINENCES (ultra-fast speeds to preserve plasma details and avoid red channel saturation) and SHUTTER_SPEEDS_CORONA (a dynamic exposure ramp for the outer filaments).
-
-[File Renaming Removal (Zero Overhead)] Eliminated software-side file renaming and live cable transfers during the core loop. The script now sends a pure capture command: the camera saves natively to the internal SD card (e.g., IMG_XXXX.CR3), leveraging the camera's hardware buffer without USB bottlenecks.
-
-[3-Shot Safety Burst] Implemented a triple consecutive burst for every single stop of the HDR ladder. This ensures high statistical redundancy against micro-blur/vibrations and provides more clean frames for post-production stacking.
+Dynamic Stabilization Delay (Anti-Freeze): To prevent USB port collisions and software freezes, the set_shutter_speed function now calculates an intelligent wait time. If the set speed is faster than a quarter of a second, the delay remains minimal (0.15s); when switching to long exposures (0.5s, 1s, or 2s), the script automatically adds a delay proportional to the exposure duration itself, ensuring the shutter has physically closed before sending new commands.

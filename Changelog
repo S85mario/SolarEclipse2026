@@ -1,3 +1,124 @@
-HDR Ladder Calibrated on Scientific Data: We have updated the exposure time pools by translating the data from Alberto Villa’s table (Astrofili Alta Valdera Association) directly into the code. The sequence now perfectly covers prominences (ultra-fast speeds) as well as the inner, middle, and outer corona (up to 2 seconds native exposure), optimized for an f/8 aperture and ISO 200.
+📋 CHANGELOG - Solar Eclipse Automation Script
+🆕 Versione 3.1 (2026) - Major Updates
+✅ CORREZIONI DI BUG
+Sintassi e Errori Critici
 
-Dynamic Stabilization Delay (Anti-Freeze): To prevent USB port collisions and software freezes, the set_shutter_speed function now calculates an intelligent wait time. If the set speed is faster than a quarter of a second, the delay remains minimal (0.15s); when switching to long exposures (0.5s, 1s, or 2s), the script automatically adds a delay proportional to the exposure duration itself, ensuring the shutter has physically closed before sending new commands.
+    Fix: Rimosso backslash in f-string che causava SyntaxError (linea 412)
+
+        '📷 MODALITA\' REALE' → '📷 MODALITA REALE'
+
+    Fix: Gestione corretta degli apostrofi nelle stringhe formattate
+
+    Fix: Aggiunti timeout ai subprocess per evitare freeze infiniti
+
+Connessione Hardware
+
+    Fix: Lo script ora avvia automaticamente digiCamControl
+
+    Fix: Aggiunta verifica che digiCamControl sia in esecuzione prima dei comandi
+
+    Fix: Test connessione camera prima dell'inizio dell'eclisse
+
+    Fix: Rilevamento automatico se digiCamControl è già aperto
+
+Gestione Errori
+
+    Fix: Catch specifico per subprocess.TimeoutExpired
+
+    Fix: Migliore gestione degli errori di connessione USB
+
+    Fix: Recupero grace period dopo errori di comunicazione
+
+✨ NUOVE FUNZIONALITÀ
+Configurazione Esterna (JSON)
+
+    Nuovo: File config_eclipse.json separato dal codice
+
+    Nuovo: Tutti i parametri configurabili senza modificare lo script
+
+    Nuovo: Supporto per profili di configurazione multipli
+
+    Nuovo: Validazione automatica del JSON all'avvio
+
+Automazione e Recovery
+
+    Nuovo: Avvio automatico di digiCamControl all'inizio
+
+    Nuovo: test_connessione_camera() - Verifica comunicazione prima dell'uso
+
+    Nuovo: avvia_digicamcontrol() - Funzione dedicata all'avvio
+
+    Nuovo: Rilevamento se digiCamControl è già in esecuzione
+
+Monitoraggio
+
+    Nuovo: Watchdog integrato con reset periodico (evita freeze)
+
+    Nuovo: Controllo automatico batteria PC (se psutil disponibile)
+
+    Nuovo: Log della temperatura CPU e uso RAM in debug mode
+
+Fasi Eclisse
+
+    Nuovo: Suddivisione automatica corona interna/esterna
+
+    Nuovo: Supporto per durata fasi configurabile
+
+    Nuovo: Lista tempi dinamica basata su nome (hdr, burst, corona_interna, corona_esterna)
+
+Suoni e Notifiche
+
+    Nuovo: Sistema di notifiche sonore configurabile via JSON
+
+    Nuovo: Suono specifico per: attenzione, critico, completamento
+
+🔧 MIGLIORAMENTI
+Codice e Struttura
+
+    Migliorato: Rimozione di tutti i valori hardcodati (ora in JSON)
+
+    Migliorato: Funzioni più piccole e modulari
+
+    Migliorato: Documentazione inline in inglese/italiano
+
+    Migliorato: Separazione chiara tra logica e configurazione
+
+Performance
+
+    Migliorato: Pause dinamiche basate sul tempo di scatto
+
+    Migliorato: Ridotto overhead I/O in modalità production
+
+    Migliorato: Timeout intelligenti per comandi camera
+
+    Migliorato: Cache della configurazione all'avvio
+
+Logging
+
+    Migliorato: Log più dettagliati con timestamp
+
+    Migliorato: Livelli log (INFO, WARN, ERROR, DEBUG)
+
+    Migliorato: Persistenza stato con hot-resume
+
+    Migliorato: File watchdog per monitoraggio freeze
+
+Test e Debug
+
+    Migliorato: Modalità simulazione completa senza hardware
+
+    Migliorato: Debug mode con log estremamente dettagliati
+
+    Migliorato: Test connessione pre-evento
+
+    Migliorato: Checklist interattiva migliorata
+
+Gestione Errori
+
+    Migliorato: Sistema di retry con backoff esponenziale
+
+    Migliorato: Messaggi di errore più chiari
+
+    Migliorato: Recovery automatico da interruzione (Ctrl+C)
+
+    Migliorato: Salvataggio stato dopo ogni scatto

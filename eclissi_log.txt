@@ -1,0 +1,20 @@
+[10:13:25] [INFO] [TIMING] Configurazione oraria manuale caricata correttamente.
+[10:13:57] [WARN] Timeout cambio tempo al tentativo 1
+[10:14:02] [WARN] Timeout cambio tempo al tentativo 2
+[10:14:08] [WARN] Timeout cambio tempo al tentativo 3
+[10:14:08] [ERROR] ❌ CRITICO: Cambio tempo fallito (1/1000)!
+[10:14:30] [WARN] Timeout cambio tempo al tentativo 1
+[10:14:35] [WARN] Timeout cambio tempo al tentativo 2
+[10:14:40] [WARN] Timeout cambio tempo al tentativo 3
+[10:14:40] [ERROR] ❌ CRITICO: Cambio tempo fallito (1/1000)!
+[10:20:12] [INFO] 🚀 Avvio digiCamControl...
+[10:20:17] [INFO] ✅ digiCamControl avviato
+[10:20:17] [INFO] [TIMING] Configurazione oraria manuale caricata correttamente.
+[10:20:59] [INFO] 🚀 MOTORE ECLISSE ATTIVO
+[10:20:59] [INFO] 📷 REAL MODE
+[10:20:59] [INFO] ⏳ Attesa 549.0 minuti fino a PRE-PARZIALE (ingresso) (19:30:00)
+[10:23:37] [INFO] ✅ digiCamControl già in esecuzione
+[10:23:37] [INFO] [TIMING] Configurazione oraria manuale caricata correttamente.
+[10:24:00] [INFO] 🚀 MOTORE ECLISSE ATTIVO
+[10:24:00] [INFO] 📷 REAL MODE
+[10:24:00] [INFO] ⏳ Attesa 546.0 minuti fino a PRE-PARZIALE (ingresso) (19:30:00)

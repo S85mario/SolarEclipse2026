@@ -1,0 +1,116 @@
+{
+  "_commento": "Configurazione per Solar Eclipse Automation Script",
+  "_versione": "2.0",
+  
+  "hardware": {
+    "marca_camera": "CANON",
+    "gui_path": "C:\\Program Files (x86)\\digiCamControl\\CameraControl.exe",
+    "cmd_path": "C:\\Program Files (x86)\\digiCamControl\\CameraControlRemoteCmd.exe",
+    "sim_mode": false,
+    "debug_mode": false
+  },
+  
+  "coordinate": {
+    "latitudine_dms": "43°44'08.77\"N",
+    "longitudine_dms": "7°55'20.04\"W",
+    "uso_calcolo_gps": false
+  },
+  
+  "timing_eclisse": {
+    "_data": "12 Agosto 2026",
+    "p1_inizio": "19:30:00",
+    "totalita_inizio": "20:27:10",
+    "totalita_fine": "20:28:50",
+    "p4_fine": "21:12:00"
+  },
+  
+  "tempi_scatto": {
+    "protuberanze": ["1/8000", "1/4000", "1/2000", "1/1000"],
+    "corona": ["1/500", "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1/4", "0.5", "1", "2"],
+    "burst": ["1/8000", "1/4000", "1/2000"],
+    "raffica_scatti": 3
+  },
+  
+  "intervalli": {
+    "ingresso_parziale_sec": 1080,
+    "uscita_parziale_sec": 690,
+    "watchdog_interval_sec": 30
+  },
+  
+  "fasi_eclisse": [
+    {
+      "nome": "PRE-PARZIALE (ingresso)",
+      "tempo_riferimento": "p1_inizio",
+      "durata_sec": 1080,
+      "lista_tempi": "hdr",
+      "usa_raffica": true
+    },
+    {
+      "nome": "ANELLO DIAMANTE (ingresso)",
+      "tempo_riferimento": "totalita_inizio",
+      "durata_sec": 5,
+      "lista_tempi": "burst",
+      "usa_raffica": true
+    },
+    {
+      "nome": "TOTALITA' - CORONA INTERNA",
+      "tempo_riferimento": "totalita_inizio",
+      "durata_sec": 45,
+      "lista_tempi": "corona_interna",
+      "usa_raffica": false
+    },
+    {
+      "nome": "TOTALITA' - CORONA ESTERNA",
+      "tempo_riferimento": "totalita_inizio",
+      "durata_sec": 45,
+      "lista_tempi": "corona_esterna",
+      "usa_raffica": false
+    },
+    {
+      "nome": "ANELLO DIAMANTE (uscita)",
+      "tempo_riferimento": "totalita_fine",
+      "durata_sec": 5,
+      "lista_tempi": "burst",
+      "usa_raffica": true
+    },
+    {
+      "nome": "POST-PARZIALE (uscita)",
+      "tempo_riferimento": "totalita_fine",
+      "durata_sec": 690,
+      "lista_tempi": "hdr",
+      "usa_raffica": true
+    }
+  ],
+  
+  "file_sistema": {
+    "log_file": "eclissi_log.txt",
+    "stato_file": "eclissi_stato.json",
+    "watchdog_file": "watchdog_last.txt"
+  },
+  
+  "checklist_items": [
+    "Filtro solare montato?",
+    "Fuoco su MANUALE (MF) e bloccato col nastro?",
+    "Camera su MANUALE (M)?",
+    "ISO e Diaframma impostati manualmente? (ISO 200, f/8)",
+    "Salvataggio SOLO su SD interna?",
+    "Formato RAW attivo?",
+    "Stabilizzatore immagine OFF?",
+    "Autofocus DISATTIVATO?"
+  ],
+  
+  "suoni": {
+    "attenzione_freq": 2000,
+    "attenzione_durata": 1000,
+    "critico_freq": 2500,
+    "critico_durata": 500,
+    "completamento_freq": [1000, 1500, 2000],
+    "completamento_durata": [200, 200, 500]
+  },
+  
+  "parametri_camera": {
+    "iso_default": 200,
+    "apertura_default": 8,
+    "test_tempo": "1/1000"
+  }
+}

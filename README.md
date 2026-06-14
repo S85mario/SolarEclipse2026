@@ -1,72 +1,449 @@
-# Universal Total Solar Eclipse Automation Script
+📖 Solar Eclipse Automation System - User Manual
+🌟 Overview
 
-A Python automation script developed to manage the entire photographic session during the Total Solar Eclipse on August 12, 2026 (Primary observation site: Galicia, Spain).
+Professional automation system for photographing total solar eclipses. Designed to handle complex HDR sequences with hot-resume support, hardware telemetry, and simulation mode.
+📋 System Requirements
+Minimum Hardware
 
-The engine interfaces directly with the **digiCamControl** Command Line Utility (`CameraControlRemoteCmd.exe`) to drive the camera body via USB. This eliminates human error and manages critical astronomical contact windows with millisecond-level precision.
+    Windows 10/11 PC (low-power laptops work too)
 
----
+    4GB RAM
 
-## ⚡ Key Features & Optimizations
+    500MB free disk space
 
-### 1. Zero-Overhead USB Protocol (Maximum Speed)
-During the totality core, every single millisecond is vital. The script is stripped of any processing overhead to prevent USB bus bottlenecks and PC CPU spikes:
-* It fires the raw hardware `capture` command with no extra arguments.
-* **No real-time file transfer:** The camera must be configured to write exclusively to its internal SD card, leveraging the mirrorless camera's native hardware buffer.
-* **Zero string manipulation or file renaming** takes place during the core totality loop, mitigating any risk of interface freezing.
+    USB 2.0 or higher port
 
-### 2. Granular Control & Isolated Exposure Pools
-Shutter speed management is split into three independent, clean Python lists at the very top of the script. This allows for instant adjustments without messing with the core loop logic:
-* **Prominences:** Ultra-fast shutter speeds dedicated to freezing plasma structures on the solar chromosphere without saturating the red channel.
-* **Corona:** A progressive dynamic ramp (ranging from fast to long exposures) to capture the full structural detail of both the inner and outer corona.
-* **Burst C2/C3:** High-speed sequences dedicated to capturing Baily's Beads and the Diamond Ring effect right at the contact thresholds.
+Recommended Hardware
 
-### 3. Anti-Vibration Redundancy (3-Shot Burst)
-For every exposure step defined in the HDR ladder, the script executes a **3-shot consecutive burst** before sending the command to switch the shutter speed (`set shutterspeed`). This provides crucial statistical redundancy against micro-blurring caused by wind gusts or mechanical shutter vibrations.
+    SSD for fast log writing
 
-### 4. Emergency Hot-Resume Protocol
-In the event of a system crash, accidental cable disconnection, or an unexpected PC reboot on the field, the engine performs an instantaneous timestamp validation upon startup. The script automatically detects the ongoing phase of the eclipse, skips past events, and resynchronizes the shooting sequence in less than 2 seconds.
+    Backup battery for PC
 
-### 5. Field Telemetry & Power Monitoring
-Native integration with system telemetry libraries keeps track of the laptop's power status. If the battery drops below a critical threshold of 20% while disconnected from the power bank (19V / 3.42A), the script triggers high-frequency audio alerts to warn the operator without interrupting the active capture loop.
+    CPU temperature monitoring (with psutil)
 
----
+Supported Cameras
 
-## ⚙️ Exposure Ladder Configuration
+    CANON (tested with EOS series)
 
-Customizing your HDR bracket is as simple as editing the values inside Section 1 of the script:
+    NIKON (theoretical support via digiCamControl)
 
-```python
-# 1. PROMINENCE LEVEL (Plasma / Chromosphere)
-SHUTTER_SPEEDS_PROMINENCES = [
-    "1/8000", "1/4000", "1/2000", "1/1000", "1/500"
-]
+    SONY (theoretical support)
 
-# 2. SOLAR CORONA LEVEL (Inner & Outer Corona)
-SHUTTER_SPEEDS_CORONA = [
-    "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1/4", "0.5", "1"
-]
+Required Software
 
-# 3. CRITICAL BURST SPEEDS FOR C2 & C3 (Diamond Ring)
-SHUTTER_SPEEDS_BURST = ["1/8000", "1/4000", "1/2000", "1/1000"]
+    Windows 10/11
 
-📋 Mandatory Pre-Flight Checklist
+    digiCamControl (free) - Download here
 
-Upon execution, the script forces the operator to manually validate the hardware state via the terminal before entering the live countdown. Ensure you follow this exact sequence:
+    Python 3.8+
 
-    Connection Order: Turn the camera ON -> Connect the shielded USB cable to the PC -> Launch the script.
+Optional Python Libraries
+bash
 
-    Optics: Solar ND filter firmly mounted for the partial phases. Lens focus set to MANUAL (MF) and physically taped down to prevent any accidental focus hunting.
+# For advanced telemetry
+pip install psutil
 
-    Camera Mode: Camera body dial must be set to strict Manual (M). ISO and Aperture must be configured manually beforehand (the script will only adjust shutter speeds).
+# For GPS astronomical calculations
+pip install ephem
 
-    Storage Configuration: Set the camera storage destination EXCLUSIVELY to the internal SD card (disable the PC-only or split-saving transfer modes inside digiCamControl).
+# No libraries are mandatory - the script works without them!
 
-🛠️ System Requirements
+🚀 Quick Installation
+1. Standard Installation
+bash
 
-    OS: Windows 10 / 11
+# Clone or download the repository
+git clone https://github.com/your-username/solar-eclipse-automation.git
+cd solar-eclipse-automation
 
-    Software: digiCamControl (installed in its default path: C:\Program Files (x86))
+# (Optional) Install additional libraries
+pip install psutil ephem
 
-    Python: Version 3.8 or higher
+# Verify files are present:
+# - SolarEclipse_IT.py
+# - config_eclipse.json
 
-    Optional Dependencies: psutil (for power telemetry monitoring), ephem (for live GPS coordinate/astronomical contact tracking).
+2. Initial Configuration
+
+    Install digiCamControl from digicamcontrol.com
+
+    Connect camera via USB
+
+    Launch digiCamControl and verify connection
+
+    Set camera to MANUAL mode (M)
+
+3. Quick Test
+bash
+
+# Enable simulation mode in JSON file
+"sim_mode": true
+
+# Run the script
+python SolarEclipse_IT.py
+
+# Verify logs are generated correctly
+
+⚙️ Detailed Configuration
+config_eclipse.json File Structure
+json
+
+{
+  "hardware": {
+    "marca_camera": "CANON",           // CANON, NIKON, SONY
+    "gui_path": "C:\\...\\CameraControl.exe",
+    "cmd_path": "C:\\...\\CameraControlRemoteCmd.exe",
+    "sim_mode": false,                 // true = test without camera
+    "debug_mode": false                // true = detailed logging
+  },
+  
+  "coordinate": {
+    "latitudine_dms": "43°44'08.77\"N",  // Degrees/minutes/seconds format
+    "longitudine_dms": "7°55'20.04\"W",  // N/S and E/W at the end
+    "uso_calcolo_gps": false            // true = auto-calculate with ephem
+  },
+  
+  "timing_eclisse": {
+    "_data": "August 12, 2026",
+    "p1_inizio": "19:30:00",           // HH:MM:SS 24h format
+    "totalita_inizio": "20:27:10",     // Totality start
+    "totalita_fine": "20:28:50",       // Totality end
+    "p4_fine": "21:12:00"              // Eclipse end
+  },
+  
+  "tempi_scatto": {
+    "protuberanze": ["1/8000", "1/4000", "1/2000", "1/1000"],
+    "corona": ["1/500", "1/250", "1/125", "1/60", "1/30", "1/15", "1/8", "1/4", "0.5", "1", "2"],
+    "burst": ["1/8000", "1/4000", "1/2000"],
+    "raffica_scatti": 3                 // Number of shots per exposure
+  },
+  
+  "intervalli": {
+    "ingresso_parziale_sec": 1080,      // 18 minutes
+    "uscita_parziale_sec": 690,         // 11.5 minutes
+    "watchdog_interval_sec": 30         // Check watchdog every 30 seconds
+  },
+  
+  "fasi_eclisse": [
+    // Define phase order and timing here
+  ],
+  
+  "checklist_items": [
+    "Solar filter mounted?",
+    "Focus on MANUAL (MF) and taped?",
+    // Add/modify checklist items
+  ],
+  
+  "parametri_camera": {
+    "iso_default": 200,
+    "apertura_default": 8,
+    "test_tempo": "1/1000"
+  }
+}
+
+📝 Advanced Configuration Guide
+Geographic Coordinates - DMS Format
+json
+
+// Valid examples:
+"latitudine_dms": "45°27'52.5\"N"    // Degrees, minutes, seconds
+"longitudine_dms": "12°15'30.0\"E"
+"latitudine_dms": "-45.4642"          // Decimal degrees (alternative)
+
+Shutter Speed Formats Supported
+json
+
+"1/8000"    // Fraction of a second
+"1/500"     
+"0.5"       // Half second
+"2"         // Two seconds
+
+Customizing Eclipse Phases
+json
+
+{
+  "nome": "OUTER CORONA",              // Name shown in logs
+  "tempo_riferimento": "totalita_inizio", // p1_inizio, totalita_inizio, totalita_fine
+  "durata_sec": 45,                    // Phase duration in seconds
+  "lista_tempi": "corona_esterna",     // hdr, burst, corona_interna, corona_esterna
+  "usa_raffica": false                 // true = multiple shots per exposure
+}
+
+Simulation vs Debug Mode
+Mode	Use Case	Effects
+sim_mode: true	Feature testing	No real camera commands
+debug_mode: true	Diagnostics	Extremely detailed logs
+Both false	Production	Real operation, minimal logs
+🎮 Basic Usage
+Running the Script
+bash
+
+python SolarEclipse_IT.py
+
+Execution Flow
+
+    Load configuration - Verify JSON file
+
+    Interactive checklist - Confirm hardware preparation
+
+    Connection test - Verify camera communication
+
+    Auto wait - Timer until eclipse starts
+
+    Acquisition - Automatic phase sequence
+
+    Completion - Save logs and notification
+
+Generated Outputs
+text
+
+project_folder/
+├── eclissi_log.txt      # Complete execution log
+├── eclissi_stato.json   # State for recovery (if interrupted)
+├── watchdog_last.txt    # Last watchdog reset timestamp
+└── config_eclipse.json  # Your configuration
+
+🛟 Recovery from Interruption (Hot-Resume)
+
+The script automatically saves state after each shot. In case of:
+
+    System crash
+
+    Accidental shutdown
+
+    Manual interruption (Ctrl+C)
+
+Recovery procedure:
+
+    Restart PC/camera
+
+    Run the script normally
+
+    System will automatically resume from the interrupted phase
+
+    ⚠️ Important: Do not delete eclissi_stato.json to maintain resume capability.
+
+📊 Log Interpretation
+Log Levels
+Level	Meaning	Required Action
+[INFO]	Normal operation	Informational only
+[WARN]	Recoverable anomaly	Monitor
+[ERROR]	Serious error	Check configuration
+[DEBUG]	Technical detail	Only if debug_mode=true
+Log Examples
+text
+
+[19:15:23] [INFO] 🚀 ECLIPSE ENGINE ACTIVE
+[19:15:23] [INFO] 📷 REAL MODE
+[19:27:10] [INFO] 🎯 TOTALITY time reached!
+[19:27:11] [INFO] 📸 TOTALITY_INNER_CORONA_1/500_shot1
+[19:27:12] [WARN] ⚠️ BATTERY AT 18% - NOT CHARGING!
+
+🔧 Troubleshooting
+Issue: "digiCamControl not found"
+
+Solution:
+
+    Verify digiCamControl is installed
+
+    Check path in config_eclipse.json
+
+    Typical path: C:\Program Files (x86)\digiCamControl\
+
+Issue: Camera not responding
+
+Checklist:
+
+    Camera powered on
+
+    USB connected directly (no hub)
+
+    digiCamControl open and connected
+
+    Camera in M (Manual) mode
+
+    Camera battery charged
+
+Issue: Wrong shutter speeds
+
+Verifications:
+
+    Speed format in JSON (e.g., "1/2000" not "1/2000s")
+
+    Camera supports specified speeds
+
+    Try simulation mode
+
+Script freezes during wait
+
+Possible causes:
+
+    Watchdog not reset correctly
+
+    System issues
+
+Solutions:
+
+    Reduce watchdog_interval_sec to 15
+
+    Disable debug_mode
+
+    Run as administrator
+
+🧪 Simulation Mode - Testing Guide
+Complete Test Configuration
+json
+
+{
+  "hardware": {
+    "sim_mode": true,
+    "debug_mode": true
+  },
+  "intervalli": {
+    "ingresso_parziale_sec": 10,    // Reduced for testing
+    "uscita_parziale_sec": 10
+  }
+}
+
+What to Verify in Simulation
+
+    ✅ Phase logic and transitions
+
+    ✅ Hot-resume (interrupt with Ctrl+C)
+
+    ✅ Wait time calculations
+
+    ✅ Error handling
+
+    ✅ State saving
+
+Tests to Run
+bash
+
+# Test 1: Complete execution
+python SolarEclipse_IT.py
+
+# Test 2: Interruption and resume
+# Start -> Ctrl+C after 10 seconds -> Restart
+
+# Test 3: Different configurations
+# Modify tempi_scatto in JSON -> Restart
+
+📈 Performance Optimization
+For Laptop/Battery
+json
+
+{
+  "intervalli": {
+    "watchdog_interval_sec": 60     // Reduces frequent checks
+  },
+  "tempi_scatto": {
+    "raffica_scatti": 2              // Fewer shots = less energy
+  }
+}
+
+For Maximum Performance
+json
+
+{
+  "intervalli": {
+    "watchdog_interval_sec": 10     // More frequent monitoring
+  },
+  "hardware": {
+    "debug_mode": false              // Reduces I/O overhead
+  }
+}
+
+🎯 Best Practices for the Event
+Before Eclipse (1 week prior)
+
+    Full test with simulation
+
+    Verify camera batteries (at least 2 charges)
+
+    Format SD cards
+
+    Backup JSON configuration
+
+    Test prolonged USB connection (1+ hours)
+
+Eclipse Day (3 hours before)
+
+    Charge PC battery to 100%
+
+    Prepare spare cables
+
+    Test camera connection
+
+    Verify solar filter orientation
+
+    Lock focus with tape
+
+During Eclipse
+
+    Do not touch PC/camera
+
+    Monitor logs only (no interaction)
+
+    If possible, use external batteries
+
+After Eclipse
+
+    Backup logs
+
+    Copy photos to external drive
+
+    Don't format SD until double backup complete
+
+❓ FAQ
+
+Q: Can I use WiFi instead of USB?
+A: Not recommended - USB latency and reliability are superior for critical events.
+
+Q: What happens if PC battery dies?
+A: On restart, hot-resume will continue from the last saved shot.
+
+Q: Does it support video during eclipse?
+A: No, focus is exclusively on HDR photos. Use a second camera for video.
+
+Q: Can I change the sequence during execution?
+A: No - all changes require restart. Use simulation mode beforehand.
+
+Q: How many photos will it take total?
+A: Approximately 60-80 depending on configuration (3x burst per exposure).
+📞 Support and Contributions
+Bug Reporting
+
+Open a GitHub issue with:
+
+    eclissi_log.txt file
+
+    Script version
+
+    JSON configuration
+
+    Steps to reproduce
+
+Suggested Improvements
+
+    Support for other camera brands
+
+    Automatic timing calculation with ephem
+
+    GUI interface
+
+    EXIF metadata export
+
+📄 License
+
+MIT License - Free use for non-commercial purposes.
+Credits appreciated but not required.
+🙏 Acknowledgments
+
+    digiCamControl team for control software
+
+    Italian astrophotography community for field testing
+
+    Open source contributors
+
+Happy eclipse! 🌞🌑📸
